@@ -23,8 +23,8 @@ function App() {
         >
          Colton Lol
         </a>
+        <MagicButton />
       </header>
-      <MagicButton />
     </div>
   );
 }

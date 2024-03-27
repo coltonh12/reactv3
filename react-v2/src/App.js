@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn how to load
+         Colton Lol
         </a>
       </header>
     </div>

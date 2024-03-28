@@ -5,8 +5,7 @@ const book = {
   title: 'harry potter and the chamber of secrets',
   author: 'J.k Rowling',
   published: '2007',
-  image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cavalierhousebooks.com%2Fbook%2F9780756903169&psig=AOvVaw0A_7TV6bXzyi3nRJXeWilm&ust=1711726846668000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCOiru8ill4UDFQAAAAAdAAAAABAD',
-  width: '264',
+  image: 'https://en.wikipedia.org/wiki/File:Harry_Potter_and_the_Chamber_of_Secrets.jpg',
   height: '378'
 };
 
@@ -43,7 +42,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         
-        <MagicButton />
+        <Bookshelf />
       </header>
     </div>
   );

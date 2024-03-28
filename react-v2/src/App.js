@@ -1,6 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 
+const book = {
+  title: 'harry potter and the chamber of secrets',
+  author: 'J.k Rowling',
+  published: '2007',
+};
+
+
 function MagicButton() {
   return (
     <div>

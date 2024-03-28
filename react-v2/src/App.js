@@ -6,6 +6,7 @@ const book = {
   author: 'J.k Rowling',
   published: '2007',
   image: 'https://en.wikipedia.org/wiki/File:Harry_Potter_and_the_Chamber_of_Secrets.jpg',
+  width: '264',
   height: '378'
 };
 

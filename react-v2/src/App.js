@@ -1,49 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
-
-const book = {
-  title: 'harry potter and the chamber of secrets',
-  author: 'J.k Rowling',
-  published: '2007',
-  image: 'https://upload.wikimedia.org/wikipedia/en/5/5c/Harry_Potter_and_the_Chamber_of_Secrets.jpg',
-  width: '264',
-  height: '378'
-};
-
-function Bookshelf() {
-  return (
-    <div>
-      <h2>{book.title} ({book.published})</h2>
-      <p>{book.author}</p>
-      <img
-      className="bookCover"
-      src={book.image}
-      alt={book.title + 'cover'}
-      style={{
-        width: book.width,
-        height: book.height
-      }}
-      />
-    </div>
-  );
-}
-
-function MagicButton() {
-  return (
-    <div>
-      <h3>This is a magic button</h3>
-    <button>Magic</button>
-    </div>
-    
-  );
-}
+import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [weather, setWeather] = useState(null);
+  const [traffic, setTraffic] = useState(null);
+
+  useEffect(() => {
+    // Fetch weather data from OpenWeather API
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=Lansing,us&appid=YOUR_OPENWEATHER_API_KEY')
+      .then(response => response.json())
+      .then(data => {
+        setWeather(data);
+      })
+      .catch(error => {
+        console.error('Error fetching weather data:', error);
+      });
+
+    // Fetch traffic data from TomTom API
+    fetch('https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/json?point=42.7335,-84.5555&key=YOUR_TOMTOM_API_KEY')
+      .then(response => response.json())
+      .then(data => {
+        setTraffic(data);
+      })
+      .catch(error => {
+        console.error('Error fetching traffic data:', error);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        
-        <Bookshelf />
+    <div className="bg-gray-200 min-h-screen p-4">
+      <header className="text-center">
+        <h1 className="text-3xl font-bold mb-4">Weather and Traffic Information</h1>
+        {weather && (
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold mb-2">Weather in Lansing, Michigan</h2>
+            <p>Temperature: {weather.main.temp}°C</p>
+            {/* Display additional weather information as needed */}
+          </div>
+        )}
+        {traffic && (
+          <div>
+            <h2 className="text-2xl font-bold mb-2">Traffic in Lansing, Michigan</h2>
+            <p>Current traffic flow: {traffic.flowSegmentData.currentSpeed} mph</p>
+            {/* Display additional traffic information as needed */}
+          </div>
+        )}
       </header>
     </div>
   );
